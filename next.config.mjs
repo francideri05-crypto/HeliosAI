@@ -1,8 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',
+  output: 'export', // Questa riga è fondamentale per GitHub Pages
   images: {
-    unoptimized: true,
+    unoptimized: true, // Necessario se usi immagini Next.js su Pages
   },
 };
 
