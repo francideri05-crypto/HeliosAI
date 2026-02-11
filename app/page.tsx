@@ -23,17 +23,18 @@ const HeroScroll = () => {
   useEffect(() => {
     // PRE-LOAD 40 FRAMES
     const loadImages = async () => {
-      const loadedImages: HTMLImageElement[] = [];
+      const promises = [];
       for (let i = 1; i <= 40; i++) {
-        const img = new Image();
-        img.src = `/frames/ezgif-frame-${i.toString().padStart(3, '0')}.jpg`;
-        await new Promise((resolve) => { 
-          img.onload = resolve; 
-          img.onerror = () => { console.warn(`Failed to load frame ${i}`); resolve(null); }; 
-        });
-        loadedImages.push(img);
+        promises.push(new Promise<HTMLImageElement | null>((resolve) => {
+          const img = new Image();
+          img.src = `/ezgif-frame-${i.toString().padStart(3, '0')}.jpg`;
+          img.onload = () => resolve(img);
+          img.onerror = () => { console.warn(`Failed to load frame ${i}`); resolve(null); };
+        }));
       }
-      setImages(loadedImages);
+      const results = await Promise.all(promises);
+      const validImages = results.filter((img): img is HTMLImageElement => img !== null);
+      setImages(validImages);
       setLoaded(true);
     };
     loadImages();
@@ -512,3 +513,4 @@ export default function Home() {
     </main>
   );
 }
+

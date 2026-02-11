@@ -29,7 +29,7 @@ export default function HeroAnimation() {
         const promise = new Promise((resolve, reject) => {
           const img = new Image();
           const paddedIndex = i.toString().padStart(3, "0");
-          img.src = `/frames/ezgif-frame-${paddedIndex}.jpg`;
+          img.src = `/ezgif-frame-${paddedIndex}.jpg`;
           img.onload = () => resolve(img);
           img.onerror = () => reject(); // Silently fail missing frames
           uniqueImages[i] = img;
