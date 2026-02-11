@@ -1,4 +1,5 @@
-﻿import { Inter, JetBrains_Mono } from "next/font/google";
+import Header from '@/components/Header';
+import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import type { Metadata } from "next";
 
@@ -17,12 +18,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="it" className="dark">
-      <head>
+      <head>`n        <link rel="icon" href="/logo.svg" type="image/svg+xml" />
         <script src="https://cdn.tailwindcss.com"></script>
       </head>
-      <body className={`${inter.variable} ${jetbrainsMono.variable} bg-zinc-950 text-white antialiased`}>
+      <body className={`${inter.variable} ${jetbrainsMono.variable} bg-zinc-950 text-white antialiased`}>`n        <Header />
         {children}
       </body>
     </html>
   );
 }
+
