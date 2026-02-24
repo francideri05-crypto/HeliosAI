@@ -498,13 +498,13 @@ const ActiveAssetDefence = () => (
     </section>
 );
 
-export default function Home() {
+import AboutMe from "@/components/AboutMe"; export default function Home() {
   return (
     <main className="bg-[#0A0A0A] min-h-screen text-white font-sans selection:bg-[#FDB813] selection:text-black">
        <HeroScroll />
        <ServiceArchitecture />
        <AgentsGrid />
-       <ActiveAssetDefence />
+       <ActiveAssetDefence /> <AboutMe />
        
        <footer className="py-12 border-t border-[#FDB813]/10 text-center text-zinc-600 font-mono text-sm bg-black">
          <div className="mb-4 text-zinc-500">HELIOS AI - MILAN, ITALY</div>
