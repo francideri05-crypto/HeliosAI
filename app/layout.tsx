@@ -36,6 +36,7 @@ export default function RootLayout({
         <html lang="it" className="dark scroll-smooth">
             <head>
                 <link rel="icon" href="/logo.svg" type="image/svg+xml" />
+                <script src="https://cdn.tailwindcss.com"></script>
             </head>
             <body className={`${inter.variable} ${jetbrainsMono.variable} bg-zinc-950 text-white antialiased font-sans`}>
                 {children}
